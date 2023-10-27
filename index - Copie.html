@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Gard_1.js"></script>
+        <script src="data/GardCommunes_2.js"></script>
+        <script src="data/EPCI_3.js"></script>
+        <script src="data/GMSautres_4.js"></script>
+        <script src="data/ListemagasinsfichierBAGARD_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[43.45123948938262,2.790961157122416],[44.62545963252019,5.673002601484487]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleRoad_0');
+        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
+        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoad_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleRoad_0;
+        map.addLayer(layer_GoogleRoad_0);
+        function pop_Gard_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>libgeo</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Gard_1_0() {
+            return {
+                pane: 'pane_Gard_1',
+                opacity: 1,
+                color: 'rgba(107,12,14,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Gard_1');
+        map.getPane('pane_Gard_1').style.zIndex = 401;
+        map.getPane('pane_Gard_1').style['mix-blend-mode'] = 'normal';
+        var layer_Gard_1 = new L.geoJson(json_Gard_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Gard_1',
+            layerName: 'layer_Gard_1',
+            pane: 'pane_Gard_1',
+            onEachFeature: pop_Gard_1,
+            style: style_Gard_1_0,
+        });
+        bounds_group.addLayer(layer_Gard_1);
+        map.addLayer(layer_Gard_1);
+        function pop_GardCommunes_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>commune</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GardCommunes_2_0() {
+            return {
+                pane: 'pane_GardCommunes_2',
+                opacity: 1,
+                color: 'rgba(54,46,46,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GardCommunes_2');
+        map.getPane('pane_GardCommunes_2').style.zIndex = 402;
+        map.getPane('pane_GardCommunes_2').style['mix-blend-mode'] = 'normal';
+        var layer_GardCommunes_2 = new L.geoJson(json_GardCommunes_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GardCommunes_2',
+            layerName: 'layer_GardCommunes_2',
+            pane: 'pane_GardCommunes_2',
+            onEachFeature: pop_GardCommunes_2,
+            style: style_GardCommunes_2_0,
+        });
+        bounds_group.addLayer(layer_GardCommunes_2);
+        function pop_EPCI_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['NOM_EPCI'] !== null ? autolinker.link(feature.properties['NOM_EPCI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Type</strong><br />' + (feature.properties['TYPE_EPCI'] !== null ? autolinker.link(feature.properties['TYPE_EPCI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EPCI_3_0() {
+            return {
+                pane: 'pane_EPCI_3',
+                opacity: 1,
+                color: 'rgba(53,68,237,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EPCI_3');
+        map.getPane('pane_EPCI_3').style.zIndex = 403;
+        map.getPane('pane_EPCI_3').style['mix-blend-mode'] = 'normal';
+        var layer_EPCI_3 = new L.geoJson(json_EPCI_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EPCI_3',
+            layerName: 'layer_EPCI_3',
+            pane: 'pane_EPCI_3',
+            onEachFeature: pop_EPCI_3,
+            style: style_EPCI_3_0,
+        });
+        bounds_group.addLayer(layer_EPCI_3);
+        map.addLayer(layer_EPCI_3);
+        function pop_GMSautres_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Equipement</strong><br />' + (feature.properties['equipment_n'] !== null ? autolinker.link(feature.properties['equipment_n'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['epci_name'] !== null ? autolinker.link(feature.properties['epci_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['com_arm_nam'] !== null ? autolinker.link(feature.properties['com_arm_nam'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GMSautres_4_0() {
+            return {
+                pane: 'pane_GMSautres_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GMSautres_4');
+        map.getPane('pane_GMSautres_4').style.zIndex = 404;
+        map.getPane('pane_GMSautres_4').style['mix-blend-mode'] = 'normal';
+        var layer_GMSautres_4 = new L.geoJson(json_GMSautres_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GMSautres_4',
+            layerName: 'layer_GMSautres_4',
+            pane: 'pane_GMSautres_4',
+            onEachFeature: pop_GMSautres_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GMSautres_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GMSautres_4);
+        map.addLayer(layer_GMSautres_4);
+        function pop_ListemagasinsfichierBAGARD_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ListemagasinsfichierBAGARD_5_0() {
+            return {
+                pane: 'pane_ListemagasinsfichierBAGARD_5',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ListemagasinsfichierBAGARD_5');
+        map.getPane('pane_ListemagasinsfichierBAGARD_5').style.zIndex = 405;
+        map.getPane('pane_ListemagasinsfichierBAGARD_5').style['mix-blend-mode'] = 'normal';
+        var layer_ListemagasinsfichierBAGARD_5 = new L.geoJson(json_ListemagasinsfichierBAGARD_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ListemagasinsfichierBAGARD_5',
+            layerName: 'layer_ListemagasinsfichierBAGARD_5',
+            pane: 'pane_ListemagasinsfichierBAGARD_5',
+            onEachFeature: pop_ListemagasinsfichierBAGARD_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ListemagasinsfichierBAGARD_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ListemagasinsfichierBAGARD_5);
+        map.addLayer(layer_ListemagasinsfichierBAGARD_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/ListemagasinsfichierBAGARD_5.png" /> Liste magasins - fichier BA GARD': layer_ListemagasinsfichierBAGARD_5,'<img src="legend/GMSautres_4.png" /> GMS - autres': layer_GMSautres_4,'<img src="legend/EPCI_3.png" /> EPCI ': layer_EPCI_3,'<img src="legend/GardCommunes_2.png" /> Gard Communes': layer_GardCommunes_2,'<img src="legend/Gard_1.png" /> Gard': layer_Gard_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+        });
+        </script>
+    </body>
+</html>
