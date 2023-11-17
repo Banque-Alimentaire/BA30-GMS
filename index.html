@@ -8,6 +8,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,15 +32,29 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Gard_1.js"></script>
-        <script src="data/GardCommunes_2.js"></script>
-        <script src="data/EPCI_3.js"></script>
-        <script src="data/GMSautres_4.js"></script>
-        <script src="data/ListemagasinsfichierBAGARD_5.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/GardCommunes_1.js"></script>
+        <script src="data/EPCI_2.js"></script>
+        <script src="data/GMSNonPartenaire_3.js"></script>
+        <script src="data/VivalP_4.js"></script>
+        <script src="data/FranprixP_5.js"></script>
+        <script src="data/CoraP_6.js"></script>
+        <script src="data/SparP_7.js"></script>
+        <script src="data/NettoP_8.js"></script>
+        <script src="data/MonoprixP_9.js"></script>
+        <script src="data/8huitP_10.js"></script>
+        <script src="data/LeclercP_11.js"></script>
+        <script src="data/CasinoP_12.js"></script>
+        <script src="data/AldiP_13.js"></script>
+        <script src="data/MagasinUP_14.js"></script>
+        <script src="data/LidlP_15.js"></script>
+        <script src="data/CarrefourP_16.js"></script>
+        <script src="data/IntermarchP_17.js"></script>
+        <script src="data/BanqueAlimentaireduGard_18.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[43.45123948938262,2.790961157122416],[44.62545963252019,5.673002601484487]]);
+        }).fitBounds([[43.462685055172805,2.995459386165071],[44.5926553670122,5.776070517550265]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -58,43 +74,7 @@
         });
         layer_GoogleRoad_0;
         map.addLayer(layer_GoogleRoad_0);
-        function pop_Gard_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>libgeo</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Gard_1_0() {
-            return {
-                pane: 'pane_Gard_1',
-                opacity: 1,
-                color: 'rgba(107,12,14,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Gard_1');
-        map.getPane('pane_Gard_1').style.zIndex = 401;
-        map.getPane('pane_Gard_1').style['mix-blend-mode'] = 'normal';
-        var layer_Gard_1 = new L.geoJson(json_Gard_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Gard_1',
-            layerName: 'layer_Gard_1',
-            pane: 'pane_Gard_1',
-            onEachFeature: pop_Gard_1,
-            style: style_Gard_1_0,
-        });
-        bounds_group.addLayer(layer_Gard_1);
-        map.addLayer(layer_Gard_1);
-        function pop_GardCommunes_2(feature, layer) {
+        function pop_GardCommunes_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>commune</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
@@ -103,35 +83,35 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_GardCommunes_2_0() {
+        function style_GardCommunes_1_0() {
             return {
-                pane: 'pane_GardCommunes_2',
+                pane: 'pane_GardCommunes_1',
                 opacity: 1,
                 color: 'rgba(54,46,46,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(141,90,153,0.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_GardCommunes_2');
-        map.getPane('pane_GardCommunes_2').style.zIndex = 402;
-        map.getPane('pane_GardCommunes_2').style['mix-blend-mode'] = 'normal';
-        var layer_GardCommunes_2 = new L.geoJson(json_GardCommunes_2, {
+        map.createPane('pane_GardCommunes_1');
+        map.getPane('pane_GardCommunes_1').style.zIndex = 401;
+        map.getPane('pane_GardCommunes_1').style['mix-blend-mode'] = 'normal';
+        var layer_GardCommunes_1 = new L.geoJson(json_GardCommunes_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_GardCommunes_2',
-            layerName: 'layer_GardCommunes_2',
-            pane: 'pane_GardCommunes_2',
-            onEachFeature: pop_GardCommunes_2,
-            style: style_GardCommunes_2_0,
+            dataVar: 'json_GardCommunes_1',
+            layerName: 'layer_GardCommunes_1',
+            pane: 'pane_GardCommunes_1',
+            onEachFeature: pop_GardCommunes_1,
+            style: style_GardCommunes_1_0,
         });
-        bounds_group.addLayer(layer_GardCommunes_2);
-        function pop_EPCI_3(feature, layer) {
+        bounds_group.addLayer(layer_GardCommunes_1);
+        function pop_EPCI_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['NOM_EPCI'] !== null ? autolinker.link(feature.properties['NOM_EPCI'].toLocaleString()) : '') + '</td>\
@@ -143,34 +123,34 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_EPCI_3_0() {
+        function style_EPCI_2_0() {
             return {
-                pane: 'pane_EPCI_3',
+                pane: 'pane_EPCI_2',
                 opacity: 1,
                 color: 'rgba(53,68,237,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 3.0,
+                weight: 2.0,
                 fillOpacity: 0,
                 interactive: true,
             }
         }
-        map.createPane('pane_EPCI_3');
-        map.getPane('pane_EPCI_3').style.zIndex = 403;
-        map.getPane('pane_EPCI_3').style['mix-blend-mode'] = 'normal';
-        var layer_EPCI_3 = new L.geoJson(json_EPCI_3, {
+        map.createPane('pane_EPCI_2');
+        map.getPane('pane_EPCI_2').style.zIndex = 402;
+        map.getPane('pane_EPCI_2').style['mix-blend-mode'] = 'normal';
+        var layer_EPCI_2 = new L.geoJson(json_EPCI_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EPCI_3',
-            layerName: 'layer_EPCI_3',
-            pane: 'pane_EPCI_3',
-            onEachFeature: pop_EPCI_3,
-            style: style_EPCI_3_0,
+            dataVar: 'json_EPCI_2',
+            layerName: 'layer_EPCI_2',
+            pane: 'pane_EPCI_2',
+            onEachFeature: pop_EPCI_2,
+            style: style_EPCI_2_0,
         });
-        bounds_group.addLayer(layer_EPCI_3);
-        map.addLayer(layer_EPCI_3);
-        function pop_GMSautres_4(feature, layer) {
+        bounds_group.addLayer(layer_EPCI_2);
+        map.addLayer(layer_EPCI_2);
+        function pop_GMSNonPartenaire_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Equipement</strong><br />' + (feature.properties['equipment_n'] !== null ? autolinker.link(feature.properties['equipment_n'].toLocaleString()) : '') + '</td>\
@@ -185,9 +165,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_GMSautres_4_0() {
+        function style_GMSNonPartenaire_3_0() {
             return {
-                pane: 'pane_GMSautres_4',
+                pane: 'pane_GMSNonPartenaire_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -201,30 +181,32 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_GMSautres_4');
-        map.getPane('pane_GMSautres_4').style.zIndex = 404;
-        map.getPane('pane_GMSautres_4').style['mix-blend-mode'] = 'normal';
-        var layer_GMSautres_4 = new L.geoJson(json_GMSautres_4, {
+        map.createPane('pane_GMSNonPartenaire_3');
+        map.getPane('pane_GMSNonPartenaire_3').style.zIndex = 403;
+        map.getPane('pane_GMSNonPartenaire_3').style['mix-blend-mode'] = 'normal';
+        var layer_GMSNonPartenaire_3 = new L.geoJson(json_GMSNonPartenaire_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_GMSautres_4',
-            layerName: 'layer_GMSautres_4',
-            pane: 'pane_GMSautres_4',
-            onEachFeature: pop_GMSautres_4,
+            dataVar: 'json_GMSNonPartenaire_3',
+            layerName: 'layer_GMSNonPartenaire_3',
+            pane: 'pane_GMSNonPartenaire_3',
+            onEachFeature: pop_GMSNonPartenaire_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_GMSautres_4_0(feature));
+                return L.circleMarker(latlng, style_GMSNonPartenaire_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_GMSautres_4);
-        map.addLayer(layer_GMSautres_4);
-        function pop_ListemagasinsfichierBAGARD_5(feature, layer) {
+        bounds_group.addLayer(layer_GMSNonPartenaire_3);
+        function pop_VivalP_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
@@ -241,58 +223,1059 @@
                     <tr>\
                         <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ListemagasinsfichierBAGARD_5_0() {
+        function style_VivalP_4_0() {
             return {
-                pane: 'pane_ListemagasinsfichierBAGARD_5',
-                radius: 6.0,
-                opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,0,0,1.0)',
+                pane: 'pane_VivalP_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Vival (grand).svg',
+            iconSize: [19.0, 19.0]
+        }),
                 interactive: true,
             }
         }
-        map.createPane('pane_ListemagasinsfichierBAGARD_5');
-        map.getPane('pane_ListemagasinsfichierBAGARD_5').style.zIndex = 405;
-        map.getPane('pane_ListemagasinsfichierBAGARD_5').style['mix-blend-mode'] = 'normal';
-        var layer_ListemagasinsfichierBAGARD_5 = new L.geoJson(json_ListemagasinsfichierBAGARD_5, {
+        map.createPane('pane_VivalP_4');
+        map.getPane('pane_VivalP_4').style.zIndex = 404;
+        map.getPane('pane_VivalP_4').style['mix-blend-mode'] = 'normal';
+        var layer_VivalP_4 = new L.geoJson(json_VivalP_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ListemagasinsfichierBAGARD_5',
-            layerName: 'layer_ListemagasinsfichierBAGARD_5',
-            pane: 'pane_ListemagasinsfichierBAGARD_5',
-            onEachFeature: pop_ListemagasinsfichierBAGARD_5,
+            dataVar: 'json_VivalP_4',
+            layerName: 'layer_VivalP_4',
+            pane: 'pane_VivalP_4',
+            onEachFeature: pop_VivalP_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ListemagasinsfichierBAGARD_5_0(feature));
+                return L.marker(latlng, style_VivalP_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ListemagasinsfichierBAGARD_5);
-        map.addLayer(layer_ListemagasinsfichierBAGARD_5);
+        var cluster_VivalP_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_VivalP_4.addLayer(layer_VivalP_4);
+
+        bounds_group.addLayer(layer_VivalP_4);
+        cluster_VivalP_4.addTo(map);
+        function pop_FranprixP_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FranprixP_5_0() {
+            return {
+                pane: 'pane_FranprixP_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Franprix.svg',
+            iconSize: [20.9, 20.9]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_FranprixP_5');
+        map.getPane('pane_FranprixP_5').style.zIndex = 405;
+        map.getPane('pane_FranprixP_5').style['mix-blend-mode'] = 'normal';
+        var layer_FranprixP_5 = new L.geoJson(json_FranprixP_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FranprixP_5',
+            layerName: 'layer_FranprixP_5',
+            pane: 'pane_FranprixP_5',
+            onEachFeature: pop_FranprixP_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_FranprixP_5_0(feature));
+            },
+        });
+        var cluster_FranprixP_5 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_FranprixP_5.addLayer(layer_FranprixP_5);
+
+        bounds_group.addLayer(layer_FranprixP_5);
+        cluster_FranprixP_5.addTo(map);
+        function pop_CoraP_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CoraP_6_0() {
+            return {
+                pane: 'pane_CoraP_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Cora.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CoraP_6');
+        map.getPane('pane_CoraP_6').style.zIndex = 406;
+        map.getPane('pane_CoraP_6').style['mix-blend-mode'] = 'normal';
+        var layer_CoraP_6 = new L.geoJson(json_CoraP_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CoraP_6',
+            layerName: 'layer_CoraP_6',
+            pane: 'pane_CoraP_6',
+            onEachFeature: pop_CoraP_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CoraP_6_0(feature));
+            },
+        });
+        var cluster_CoraP_6 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_CoraP_6.addLayer(layer_CoraP_6);
+
+        bounds_group.addLayer(layer_CoraP_6);
+        cluster_CoraP_6.addTo(map);
+        function pop_SparP_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SparP_7_0() {
+            return {
+                pane: 'pane_SparP_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Spar.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SparP_7');
+        map.getPane('pane_SparP_7').style.zIndex = 407;
+        map.getPane('pane_SparP_7').style['mix-blend-mode'] = 'normal';
+        var layer_SparP_7 = new L.geoJson(json_SparP_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SparP_7',
+            layerName: 'layer_SparP_7',
+            pane: 'pane_SparP_7',
+            onEachFeature: pop_SparP_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_SparP_7_0(feature));
+            },
+        });
+        var cluster_SparP_7 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_SparP_7.addLayer(layer_SparP_7);
+
+        bounds_group.addLayer(layer_SparP_7);
+        cluster_SparP_7.addTo(map);
+        function pop_NettoP_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NettoP_8_0() {
+            return {
+                pane: 'pane_NettoP_8',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/wp79818_created.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_NettoP_8');
+        map.getPane('pane_NettoP_8').style.zIndex = 408;
+        map.getPane('pane_NettoP_8').style['mix-blend-mode'] = 'normal';
+        var layer_NettoP_8 = new L.geoJson(json_NettoP_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NettoP_8',
+            layerName: 'layer_NettoP_8',
+            pane: 'pane_NettoP_8',
+            onEachFeature: pop_NettoP_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_NettoP_8_0(feature));
+            },
+        });
+        var cluster_NettoP_8 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_NettoP_8.addLayer(layer_NettoP_8);
+
+        bounds_group.addLayer(layer_NettoP_8);
+        cluster_NettoP_8.addTo(map);
+        function pop_MonoprixP_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MonoprixP_9_0() {
+            return {
+                pane: 'pane_MonoprixP_9',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Monoprix.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MonoprixP_9');
+        map.getPane('pane_MonoprixP_9').style.zIndex = 409;
+        map.getPane('pane_MonoprixP_9').style['mix-blend-mode'] = 'normal';
+        var layer_MonoprixP_9 = new L.geoJson(json_MonoprixP_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MonoprixP_9',
+            layerName: 'layer_MonoprixP_9',
+            pane: 'pane_MonoprixP_9',
+            onEachFeature: pop_MonoprixP_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_MonoprixP_9_0(feature));
+            },
+        });
+        var cluster_MonoprixP_9 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_MonoprixP_9.addLayer(layer_MonoprixP_9);
+
+        bounds_group.addLayer(layer_MonoprixP_9);
+        cluster_MonoprixP_9.addTo(map);
+        function pop_8huitP_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids _Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_8huitP_10_0() {
+            return {
+                pane: 'pane_8huitP_10',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/8a8.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_8huitP_10');
+        map.getPane('pane_8huitP_10').style.zIndex = 410;
+        map.getPane('pane_8huitP_10').style['mix-blend-mode'] = 'normal';
+        var layer_8huitP_10 = new L.geoJson(json_8huitP_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_8huitP_10',
+            layerName: 'layer_8huitP_10',
+            pane: 'pane_8huitP_10',
+            onEachFeature: pop_8huitP_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_8huitP_10_0(feature));
+            },
+        });
+        var cluster_8huitP_10 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_8huitP_10.addLayer(layer_8huitP_10);
+
+        bounds_group.addLayer(layer_8huitP_10);
+        cluster_8huitP_10.addTo(map);
+        function pop_LeclercP_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LeclercP_11_0() {
+            return {
+                pane: 'pane_LeclercP_11',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Leclerc fb.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LeclercP_11');
+        map.getPane('pane_LeclercP_11').style.zIndex = 411;
+        map.getPane('pane_LeclercP_11').style['mix-blend-mode'] = 'normal';
+        var layer_LeclercP_11 = new L.geoJson(json_LeclercP_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LeclercP_11',
+            layerName: 'layer_LeclercP_11',
+            pane: 'pane_LeclercP_11',
+            onEachFeature: pop_LeclercP_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_LeclercP_11_0(feature));
+            },
+        });
+        var cluster_LeclercP_11 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_LeclercP_11.addLayer(layer_LeclercP_11);
+
+        bounds_group.addLayer(layer_LeclercP_11);
+        cluster_LeclercP_11.addTo(map);
+        function pop_CasinoP_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CasinoP_12_0() {
+            return {
+                pane: 'pane_CasinoP_12',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Casino.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CasinoP_12');
+        map.getPane('pane_CasinoP_12').style.zIndex = 412;
+        map.getPane('pane_CasinoP_12').style['mix-blend-mode'] = 'normal';
+        var layer_CasinoP_12 = new L.geoJson(json_CasinoP_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CasinoP_12',
+            layerName: 'layer_CasinoP_12',
+            pane: 'pane_CasinoP_12',
+            onEachFeature: pop_CasinoP_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CasinoP_12_0(feature));
+            },
+        });
+        var cluster_CasinoP_12 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_CasinoP_12.addLayer(layer_CasinoP_12);
+
+        bounds_group.addLayer(layer_CasinoP_12);
+        cluster_CasinoP_12.addTo(map);
+        function pop_AldiP_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AldiP_13_0() {
+            return {
+                pane: 'pane_AldiP_13',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Aldi.svg',
+            iconSize: [17.099999999999998, 17.099999999999998]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AldiP_13');
+        map.getPane('pane_AldiP_13').style.zIndex = 413;
+        map.getPane('pane_AldiP_13').style['mix-blend-mode'] = 'normal';
+        var layer_AldiP_13 = new L.geoJson(json_AldiP_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AldiP_13',
+            layerName: 'layer_AldiP_13',
+            pane: 'pane_AldiP_13',
+            onEachFeature: pop_AldiP_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_AldiP_13_0(feature));
+            },
+        });
+        var cluster_AldiP_13 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_AldiP_13.addLayer(layer_AldiP_13);
+
+        bounds_group.addLayer(layer_AldiP_13);
+        cluster_AldiP_13.addTo(map);
+        function pop_MagasinUP_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Enseigne</strong><br />' + (feature.properties['Enseigne'] !== null ? autolinker.link(feature.properties['Enseigne'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Téléphon</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code posta</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse co</strong><br />' + (feature.properties['Adresse co'] !== null ? autolinker.link(feature.properties['Adresse co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Coll</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids - Co</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MagasinUP_14_0() {
+            return {
+                pane: 'pane_MagasinUP_14',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/U.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MagasinUP_14');
+        map.getPane('pane_MagasinUP_14').style.zIndex = 414;
+        map.getPane('pane_MagasinUP_14').style['mix-blend-mode'] = 'normal';
+        var layer_MagasinUP_14 = new L.geoJson(json_MagasinUP_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MagasinUP_14',
+            layerName: 'layer_MagasinUP_14',
+            pane: 'pane_MagasinUP_14',
+            onEachFeature: pop_MagasinUP_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_MagasinUP_14_0(feature));
+            },
+        });
+        var cluster_MagasinUP_14 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_MagasinUP_14.addLayer(layer_MagasinUP_14);
+
+        bounds_group.addLayer(layer_MagasinUP_14);
+        cluster_MagasinUP_14.addTo(map);
+        function pop_LidlP_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LidlP_15_0() {
+            return {
+                pane: 'pane_LidlP_15',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/lidl.svg',
+            iconSize: [17.099999999999998, 17.099999999999998]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LidlP_15');
+        map.getPane('pane_LidlP_15').style.zIndex = 415;
+        map.getPane('pane_LidlP_15').style['mix-blend-mode'] = 'normal';
+        var layer_LidlP_15 = new L.geoJson(json_LidlP_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LidlP_15',
+            layerName: 'layer_LidlP_15',
+            pane: 'pane_LidlP_15',
+            onEachFeature: pop_LidlP_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_LidlP_15_0(feature));
+            },
+        });
+        var cluster_LidlP_15 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_LidlP_15.addLayer(layer_LidlP_15);
+
+        bounds_group.addLayer(layer_LidlP_15);
+        cluster_LidlP_15.addTo(map);
+        function pop_CarrefourP_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CarrefourP_16_0() {
+            return {
+                pane: 'pane_CarrefourP_16',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Carrefour.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CarrefourP_16');
+        map.getPane('pane_CarrefourP_16').style.zIndex = 416;
+        map.getPane('pane_CarrefourP_16').style['mix-blend-mode'] = 'normal';
+        var layer_CarrefourP_16 = new L.geoJson(json_CarrefourP_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CarrefourP_16',
+            layerName: 'layer_CarrefourP_16',
+            pane: 'pane_CarrefourP_16',
+            onEachFeature: pop_CarrefourP_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CarrefourP_16_0(feature));
+            },
+        });
+        var cluster_CarrefourP_16 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_CarrefourP_16.addLayer(layer_CarrefourP_16);
+
+        bounds_group.addLayer(layer_CarrefourP_16);
+        cluster_CarrefourP_16.addTo(map);
+        function pop_IntermarchP_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['Code posta'] !== null ? autolinker.link(feature.properties['Code posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Code VIF</strong><br />' + (feature.properties['Code VIF'] !== null ? autolinker.link(feature.properties['Code VIF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ramasse BA</strong><br />' + (feature.properties['Ramasse BA'] !== null ? autolinker.link(feature.properties['Ramasse BA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Nationale</strong><br />' + (feature.properties['Poids_Coll'] !== null ? autolinker.link(feature.properties['Poids_Coll'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Poids_Collecte Printemps</strong><br />' + (feature.properties['Poids - Co'] !== null ? autolinker.link(feature.properties['Poids - Co'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IntermarchP_17_0() {
+            return {
+                pane: 'pane_IntermarchP_17',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/rr20235_created.svg',
+            iconSize: [17.099999999999998, 17.099999999999998]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_IntermarchP_17');
+        map.getPane('pane_IntermarchP_17').style.zIndex = 417;
+        map.getPane('pane_IntermarchP_17').style['mix-blend-mode'] = 'normal';
+        var layer_IntermarchP_17 = new L.geoJson(json_IntermarchP_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_IntermarchP_17',
+            layerName: 'layer_IntermarchP_17',
+            pane: 'pane_IntermarchP_17',
+            onEachFeature: pop_IntermarchP_17,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_IntermarchP_17_0(feature));
+            },
+        });
+        var cluster_IntermarchP_17 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_IntermarchP_17.addLayer(layer_IntermarchP_17);
+
+        bounds_group.addLayer(layer_IntermarchP_17);
+        cluster_IntermarchP_17.addTo(map);
+        function pop_BanqueAlimentaireduGard_18(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Nom</strong><br />' + (feature.properties['Nom'] !== null ? autolinker.link(feature.properties['Nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['CP'] !== null ? autolinker.link(feature.properties['CP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BanqueAlimentaireduGard_18_0() {
+            return {
+                pane: 'pane_BanqueAlimentaireduGard_18',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/BA (associations partenaires).svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_BanqueAlimentaireduGard_18');
+        map.getPane('pane_BanqueAlimentaireduGard_18').style.zIndex = 418;
+        map.getPane('pane_BanqueAlimentaireduGard_18').style['mix-blend-mode'] = 'normal';
+        var layer_BanqueAlimentaireduGard_18 = new L.geoJson(json_BanqueAlimentaireduGard_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BanqueAlimentaireduGard_18',
+            layerName: 'layer_BanqueAlimentaireduGard_18',
+            pane: 'pane_BanqueAlimentaireduGard_18',
+            onEachFeature: pop_BanqueAlimentaireduGard_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_BanqueAlimentaireduGard_18_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_BanqueAlimentaireduGard_18);
+        map.addLayer(layer_BanqueAlimentaireduGard_18);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/ListemagasinsfichierBAGARD_5.png" /> Liste magasins - fichier BA GARD': layer_ListemagasinsfichierBAGARD_5,'<img src="legend/GMSautres_4.png" /> GMS - autres': layer_GMSautres_4,'<img src="legend/EPCI_3.png" /> EPCI ': layer_EPCI_3,'<img src="legend/GardCommunes_2.png" /> Gard Communes': layer_GardCommunes_2,'<img src="legend/Gard_1.png" /> Gard': layer_Gard_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/BanqueAlimentaireduGard_18.png" /> Banque Alimentaire du Gard': layer_BanqueAlimentaireduGard_18,'<img src="legend/IntermarchP_17.png" /> Intermarché (P)': cluster_IntermarchP_17,'<img src="legend/CarrefourP_16.png" /> Carrefour (P)': cluster_CarrefourP_16,'<img src="legend/LidlP_15.png" /> Lidl (P)': cluster_LidlP_15,'<img src="legend/MagasinUP_14.png" /> Magasin U (P)': cluster_MagasinUP_14,'<img src="legend/AldiP_13.png" /> Aldi (P)': cluster_AldiP_13,'<img src="legend/CasinoP_12.png" /> Casino (P)': cluster_CasinoP_12,'<img src="legend/LeclercP_11.png" /> Leclerc (P)': cluster_LeclercP_11,'<img src="legend/8huitP_10.png" /> 8 à huit (P)': cluster_8huitP_10,'<img src="legend/MonoprixP_9.png" /> Monoprix (P)': cluster_MonoprixP_9,'<img src="legend/NettoP_8.png" /> Netto (P)': cluster_NettoP_8,'<img src="legend/SparP_7.png" /> Spar (P)': cluster_SparP_7,'<img src="legend/CoraP_6.png" /> Cora (P)': cluster_CoraP_6,'<img src="legend/FranprixP_5.png" /> Franprix (P)': cluster_FranprixP_5,'<img src="legend/VivalP_4.png" /> Vival (P)': cluster_VivalP_4,'<img src="legend/GMSNonPartenaire_3.png" />  GMS - Non Partenaire': layer_GMSNonPartenaire_3,'<img src="legend/EPCI_2.png" /> EPCI ': layer_EPCI_2,'<img src="legend/GardCommunes_1.png" /> Gard Communes': layer_GardCommunes_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
-        resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+        resetLabels([layer_GardCommunes_1]);
         map.on("zoomend", function(){
-            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+            resetLabels([layer_GardCommunes_1]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+            resetLabels([layer_GardCommunes_1]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Gard_1,layer_GardCommunes_2]);
+            resetLabels([layer_GardCommunes_1]);
         });
         </script>
     </body>
